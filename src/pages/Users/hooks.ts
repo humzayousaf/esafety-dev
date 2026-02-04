@@ -38,7 +38,7 @@ export type Role = {
 
 // --- Fetcher function
 async function fetchRoles(): Promise<Role[]> {
-  const { data } = await api.get("/api/v1/admin/roles");
+  const { data } = await api.get("/api/v1/admin/roles",{params: {per_page: "all"}});
   return Array.isArray(data) ? data : data.data ?? []; // handle different API structures
 }
 
